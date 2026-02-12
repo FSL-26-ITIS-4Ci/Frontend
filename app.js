@@ -27,7 +27,6 @@ async function init() {
     switch (data.type) {
       case "gamesList":
       case "search":
-        console.log(data.value);
         renderGames(data.value);
         break;
       case "initialFilters":
@@ -86,19 +85,23 @@ async function cerca() {
 }
 
 function createGameCard(game) {
-  return `
+  return (
+    `
     <div class="game-card">
       <h2>${game.nome}</h2>
       <p>${game.studio}</p>
-      <div>
-${game.tag.map((tag) => `<span>${tag}</span>`).join(", ")}
-      </div>
+      <p>Tags: ${game.tag.join(", ")}</p>
       <p>Price: €${game.prezzo}</p>
       <p>Platforms: ${game.piattaforme.join(", ")}</p>
       <p>PEGI: ${game.pegi}</p>
       <p>Cross-Play: ${game.crossPlay ? "Yes" : "No"}</p>
-    </div>
-  `;
+  ` +
+    (game.common
+      ? game.common.length
+        ? `<p>Tag/Piattaforme Comuni: ${game.common.join(", ")}</p></div>`
+        : "</div>"
+      : "</div>")
+  );
 }
 
 function renderGames(gamesList) {
