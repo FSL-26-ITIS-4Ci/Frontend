@@ -29,12 +29,10 @@ async function init() {
         break;
       case "initialFilters":
         data.tags.forEach((tag) => {
-          tagSelect.innerHTML += `<input type="checkbox" id="${tag}" name="tag" value="${tag}">
-        <label for="${tag}">${tag}</label><br>`;
+          tagSelect.innerHTML += `<label for="${tag}"><input type="checkbox" id="${tag}" name="tag" value="${tag}">${tag}</label>`;
         });
         data.piattaforme.forEach((piattaforma) => {
-          platformSelect.innerHTML += `<input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">
-        <label for="${piattaforma}">${piattaforma}</label><br>`;
+          platformSelect.innerHTML += `<label for="${piattaforma}"><input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">${piattaforma}</label>`;
         });
         break;
 
