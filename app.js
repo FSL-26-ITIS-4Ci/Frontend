@@ -124,3 +124,10 @@ searchArea.addEventListener("input", () => {
     cerca();
   }
 });
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    cerca();
+  }
+});
