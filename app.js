@@ -7,6 +7,7 @@ let currentFilters = {
   searchTerm: "",
   tags: [],
   platforms: [],
+  crossPlay: "",
 };
 
 function waitForConnection() {
@@ -68,12 +69,17 @@ async function cerca() {
   const piatCheckboxes = form.querySelectorAll('input[name="piat"]:checked');
   currentFilters.platforms = Array.from(piatCheckboxes).map((cb) => cb.value);
 
+  const formData = new FormData(form);
+
+  currentFilters.crossPlay = formData.get("crossPlay");
+
   ws.send(
     JSON.stringify({
       type: "search",
       value: searchArea.value,
       platforms: currentFilters.platforms,
       tags: currentFilters.tags,
+      crossPlay: currentFilters.crossPlay,
     }),
   );
 }
