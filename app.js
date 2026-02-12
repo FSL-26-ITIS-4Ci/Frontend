@@ -8,7 +8,7 @@ const WS_URL =
   hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
     : hostname === "frontend-production-fc994.up.railway.app"
-      ? "wss://shinkansen.proxy.rlwy.net:13395"
+      ? "wss://backend-js-production-7ed9.up.railway.app"
       : "wss://backend-js-vubt.onrender.com";
 
 const ws = new WebSocket(WS_URL);
