@@ -3,7 +3,12 @@ const searchArea = document.getElementById("searchArea");
 const tagSelect = document.getElementById("tagSelect");
 const platformSelect = document.getElementById("platformSelect");
 const ws = new WebSocket("ws://localhost:8080");
-let games;
+
+let currentFilters = {
+  searchTerm: "",
+  tags: [],
+  platforms: [],
+};
 
 function waitForConnection() {
   return new Promise((resolve) => {
@@ -17,21 +22,27 @@ function waitForConnection() {
 
 async function init() {
   await waitForConnection();
-
   ws.onmessage = (event) => {
     const data = JSON.parse(event.data);
-
-    if (data.type === "gamesList" || data.type === "search") {
-      renderGames(data.value);
-    } else if (data.type === "initialFilters") {
-      data.tags.forEach((tag) => {
-        tagSelect.innerHTML += `<input type="checkbox" id="${tag}" name="${tag}" value="${tag}">
+    switch (data.type) {
+      case "gamesList":
+      case "search":
+        console.log(data.value);
+        renderGames(data.value);
+        break;
+      case "initialFilters":
+        data.tags.forEach((tag) => {
+          tagSelect.innerHTML += `<input type="checkbox" id="${tag}" name="tag" value="${tag}">
         <label for="${tag}">${tag}</label><br>`;
-      });
-      data.piattaforme.forEach((piattaforma) => {
-        platformSelect.innerHTML += `<input type="checkbox" id="${piattaforma}" name="${piattaforma}" value="${piattaforma}">
+        });
+        data.piattaforme.forEach((piattaforma) => {
+          platformSelect.innerHTML += `<input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">
         <label for="${piattaforma}">${piattaforma}</label><br>`;
-      });
+        });
+        break;
+
+      default:
+        console.log("ERROR: Invalid request");
     }
   };
 }
@@ -49,10 +60,27 @@ ws.onclose = () => {
 };
 
 async function cerca() {
+  currentFilters.searchTerm = searchArea.value;
+
+  const form = document.getElementById("form");
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const tagCheckboxes = form.querySelectorAll('input[name="tag"]:checked');
+  currentFilters.tags = Array.from(tagCheckboxes).map((cb) => cb.value);
+
+  const piatCheckboxes = form.querySelectorAll('input[name="piat"]:checked');
+  currentFilters.platforms = Array.from(piatCheckboxes).map((cb) => cb.value);
+
   ws.send(
     JSON.stringify({
       type: "search",
       value: searchArea.value,
+      platforms: currentFilters.platforms,
+      tags: currentFilters.tags,
     }),
   );
 }
@@ -63,7 +91,7 @@ function createGameCard(game) {
       <h2>${game.nome}</h2>
       <p>${game.studio}</p>
       <div>
-        ${game.tag.map((tag) => `<span>${tag}</span>`).join(", ")}
+${game.tag.map((tag) => `<span>${tag}</span>`).join(", ")}
       </div>
       <p>Price: €${game.prezzo}</p>
       <p>Platforms: ${game.piattaforme.join(", ")}</p>
