@@ -1,7 +1,14 @@
 const searchArea = document.getElementById("searchArea");
 const tagSelect = document.getElementById("tagSelect");
 const platformSelect = document.getElementById("platformSelect");
-const ws = new WebSocket("ws://localhost:8080");
+
+const WS_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "ws://localhost:8080"
+    : "wss://backend-js-vubt.onrender.com";
+
+const ws = new WebSocket(WS_URL);
 
 let currentFilters = {
   searchTerm: "",
