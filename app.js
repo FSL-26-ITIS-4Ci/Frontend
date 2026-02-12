@@ -2,11 +2,14 @@ const searchArea = document.getElementById("searchArea");
 const tagSelect = document.getElementById("tagSelect");
 const platformSelect = document.getElementById("platformSelect");
 
+const hostname = window.location.hostname;
+
 const WS_URL =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1"
+  hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
-    : "wss://backend-js-vubt.onrender.com";
+    : hostname === "frontend-production-fc994.up.railway.app"
+      ? "wss://shinkansen.proxy.rlwy.net:13395"
+      : "wss://backend-js-vubt.onrender.com";
 
 const ws = new WebSocket(WS_URL);
 
