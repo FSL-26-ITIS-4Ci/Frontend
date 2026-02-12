@@ -1,4 +1,3 @@
-const stato = document.getElementById("status");
 const searchArea = document.getElementById("searchArea");
 const tagSelect = document.getElementById("tagSelect");
 const platformSelect = document.getElementById("platformSelect");
@@ -13,8 +12,7 @@ let currentFilters = {
 function waitForConnection() {
   return new Promise((resolve) => {
     ws.onopen = () => {
-      stato.textContent = "Connected to server";
-      stato.style.color = "green";
+      console.log("SERVER: Connesso");
       resolve();
     };
   });
@@ -49,13 +47,11 @@ async function init() {
 init();
 
 ws.onerror = (error) => {
-  stato.textContent = "Error: " + error.message;
-  stato.style.color = "red";
+  console.log("Error: " + error.message);
 };
 
 ws.onclose = () => {
-  stato.textContent = "Disconnected from server";
-  stato.style.color = "red";
+  console.log("Disconnected from server");
 };
 
 async function cerca() {
