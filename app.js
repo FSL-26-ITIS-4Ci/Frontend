@@ -120,7 +120,7 @@ function renderGames(gamesList) {
 }
 
 searchArea.addEventListener("input", () => {
-  if (this.value === "") {
+  if (searchArea.value === "") {
     cerca();
   }
 });
