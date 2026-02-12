@@ -118,3 +118,9 @@ function renderGames(gamesList) {
   const gamesGrid = document.getElementById("gamesGrid");
   gamesGrid.innerHTML = gamesList.map((game) => createGameCard(game)).join("");
 }
+
+searchArea.addEventListener("input", () => {
+  if (this.value === "") {
+    cerca();
+  }
+});
