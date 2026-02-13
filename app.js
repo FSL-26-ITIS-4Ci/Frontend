@@ -102,6 +102,7 @@ function createGameCard(game) {
   return (
     `
     <div class="game-card">
+      <img src=${game.imgPath}>
       <h2>${game.nome}</h2>
       <p>${game.studio}</p>
       <p>Tags: ${game.tag.join(", ")}</p>
