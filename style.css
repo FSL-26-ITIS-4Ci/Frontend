@@ -17,18 +17,13 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #1d1d1d;
+  color: #fff;
 }
 
 header {
-  background: #356aa0;
-  background: linear-gradient(
-    180deg,
-    rgba(53, 106, 160, 1) 55%,
-    rgba(245, 245, 245, 1) 100%
-  );
-  color: white;
+  background: linear-gradient(10deg, #0000ff, #0066ff);
+  color: #fff;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -46,7 +41,7 @@ body {
 }
 
 nav {
-  background-color: white;
+  background-color: #272727;
   padding: 15px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -59,32 +54,43 @@ nav {
 #searchArea {
   flex: 1;
   padding: 10px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   font-size: 14px;
   transition: border-color 0.3s;
+  background-color: rgba(16, 16, 16, 0.4);
+  color: #fff;
+}
+
+#searchArea::placeholder {
+  color: #a8a8a8;
+  opacity: 0.7;
 }
 
 #searchArea:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  border-color: #0000ff;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+}
+
+#searchArea:hover {
+  border-color: #0000ff;
 }
 
 #searchButton {
   padding: 10px 25px;
-  background-color: #3498db;
-  color: white;
+  background: linear-gradient(10deg, #0000ff, #0066ff);
+  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 #searchButton:hover {
-  background-color: #2980b9;
+  background: linear-gradient(10deg, #3333ff, #0066ff);
 }
 
 .content-wrapper {
@@ -96,7 +102,7 @@ nav {
 
 aside {
   width: 200px;
-  background-color: white;
+  background-color: #272727;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -109,11 +115,37 @@ aside form {
   gap: 15px;
 }
 
+#reset {
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#reset:hover {
+  background-color: rgba(0, 0, 255, 0.1);
+  border-color: #0000ff;
+  transform: translateY(-2px);
+}
+
+#reset i {
+  font-size: 16px;
+}
+
 details {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #3d3d3d;
   border-radius: 4px;
   padding: 10px;
-  background-color: #fafafa;
+  background-color: rgba(16, 16, 16, 0.4);
   max-height: 300px;
   overflow-y: auto;
 }
@@ -123,34 +155,34 @@ details::-webkit-scrollbar {
 }
 
 details::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1d1d1d;
   border-radius: 4px;
 }
 
 details::-webkit-scrollbar-thumb {
-  background: #3498db;
+  background: #0000ff;
   border-radius: 4px;
 }
 
 details::-webkit-scrollbar-thumb:hover {
-  background: #2980b9;
+  background: #3333ff;
 }
 
 details summary {
   font-weight: 600;
   cursor: pointer;
-  color: #2c3e50;
+  color: #fff;
   user-select: none;
   padding: 5px;
   transition: color 0.3s;
 }
 
 details summary:hover {
-  color: #3498db;
+  color: #0000ff;
 }
 
 details[open] summary {
-  color: #3498db;
+  color: #0000ff;
   margin-bottom: 10px;
 }
 
@@ -159,12 +191,13 @@ details > :not(summary) {
   padding: 5px;
 }
 
-details input[type="checkbox"] {
+details input[type="checkbox"],
+details input[type="radio"] {
   width: 18px;
   height: 18px;
   margin-right: 10px;
   cursor: pointer;
-  accent-color: #3498db;
+  accent-color: #0000ff;
   flex-shrink: 0;
   vertical-align: middle;
 }
@@ -175,10 +208,11 @@ details label {
   margin: 10px 0;
   cursor: pointer;
   font-size: 14px;
+  color: #b7b7b7;
 }
 
 details label:hover {
-  color: #3498db;
+  color: #0000ff;
 }
 
 .games-grid {
@@ -189,7 +223,7 @@ details label:hover {
   max-height: 600px;
   overflow-y: auto;
   padding: 20px;
-  background-color: white;
+  background-color: #272727;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -199,22 +233,22 @@ details label:hover {
 }
 
 .games-grid::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1d1d1d;
   border-radius: 5px;
 }
 
 .games-grid::-webkit-scrollbar-thumb {
-  background: #3498db;
+  background: #0000ff;
   border-radius: 5px;
 }
 
 .games-grid::-webkit-scrollbar-thumb:hover {
-  background: #2980b9;
+  background: #3333ff;
 }
 
 .game-card {
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  background-color: #323232;
+  border: 1px solid #3d3d3d;
   border-radius: 5px;
   padding: 15px;
   transition:
@@ -225,27 +259,32 @@ details label:hover {
 
 .game-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 255, 0.3);
+  border-color: #0000ff;
 }
 
 .game-card h3 {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: #fff;
 }
 
 .game-card p {
   font-size: 13px;
-  color: #666;
+  color: #a8a8a8;
   line-height: 1.5;
 }
 
 footer {
-  background-color: #356aa0;
-  color: white;
+  background: linear-gradient(10deg, #0000ff, #0066ff);
+  color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 footer small {
@@ -253,12 +292,72 @@ footer small {
   opacity: 0.8;
 }
 
+footer button {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s;
+  font-family: "Barlow", sans-serif;
+}
+
+footer button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 section {
   margin: 20px;
   padding: 20px;
-  background-color: white;
+  background-color: #272727;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-height: 400px;
+  }
+
+  nav {
+    flex-direction: column;
+    margin: 0 10px 10px 10px;
+  }
+
+  #searchArea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+  }
+
+  nav {
+    padding: 10px;
+    margin: 0 10px 10px 10px;
+  }
 }
 
 @media (max-width: 768px) {
