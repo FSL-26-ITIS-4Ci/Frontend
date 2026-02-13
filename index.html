@@ -6,6 +6,10 @@
     <title>FindYourGame</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/bf9b73a23d.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -25,6 +29,13 @@
     <div class="content-wrapper">
       <aside>
         <form id="form">
+          <button name="reset" id="reset" onclick="reset()">
+            <i
+              class="fa-solid fa-filter-circle-xmark"
+              style="color: rgba(13, 98, 249, 1)"
+            ></i>
+            Reset
+          </button>
           <details id="tagSelect">
             <summary>Filtra per tag</summary>
           </details>

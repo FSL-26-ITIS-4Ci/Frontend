@@ -169,4 +169,14 @@ async function getCheckbox() {
   });
 }
 
+function reset() {
+  searchArea.value = "";
+  currentFilters.searchTerm = "";
+  currentFilters.tags = [];
+  currentFilters.platforms = [];
+  currentFilters.pegi = null;
+
+  cerca();
+}
+
 handleType();
