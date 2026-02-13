@@ -1,3 +1,5 @@
+const hostname = window.location.hostname;
+
 const WS_URL =
   hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
