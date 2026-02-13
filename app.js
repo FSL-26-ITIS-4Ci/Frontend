@@ -18,6 +18,7 @@ let currentFilters = {
   tags: [],
   platforms: [],
   crossPlay: "",
+  pegi: null,
 };
 
 function waitForConnection() {
@@ -83,6 +84,7 @@ async function cerca() {
   const formData = new FormData(form);
 
   currentFilters.crossPlay = formData.get("crossPlay");
+  currentFilters.pegi = formData.get("pegi");
 
   ws.send(
     JSON.stringify({
@@ -91,6 +93,7 @@ async function cerca() {
       platforms: currentFilters.platforms,
       tags: currentFilters.tags,
       crossPlay: currentFilters.crossPlay,
+      pegi: currentFilters.pegi,
     }),
   );
 }
