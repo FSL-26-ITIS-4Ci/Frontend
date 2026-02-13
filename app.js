@@ -45,6 +45,7 @@ async function init() {
         data.piattaforme.forEach((piattaforma) => {
           platformSelect.innerHTML += `<label for="${piattaforma}"><input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">${piattaforma}</label>`;
         });
+        getCheckbox();
         break;
 
       default:
@@ -108,7 +109,7 @@ function createGameCard(game) {
   ` +
     (game.common
       ? game.common.length
-        ? `<p>Tag/Piattaforme Comuni: ${game.common.join(", ")}</p></div>`
+        ? `<p>Tag/Piattaforme Comuni: <strong>${game.common.join(", ")}</strong></p></div>`
         : "</div>"
       : "</div>")
   );
@@ -131,3 +132,16 @@ document.addEventListener("keydown", (e) => {
     cerca();
   }
 });
+
+async function getCheckbox() {
+  const allCheck = document.querySelectorAll('[type="checkbox"]');
+  Array.from(allCheck).forEach((checkbox) => {
+    checkbox.addEventListener("click", () => {
+      if (checkbox.parentNode.style.fontWeight === "bold") {
+        checkbox.parentNode.style.fontWeight = "normal";
+      } else {
+        checkbox.parentNode.style.fontWeight = "bold";
+      }
+    });
+  });
+}
