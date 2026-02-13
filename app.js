@@ -136,6 +136,17 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+async function handleType() {
+  let timerObj;
+  searchArea.addEventListener("keyup", () => {
+    clearTimeout(timerObj);
+
+    timerObj = setTimeout(() => {
+      cerca();
+    }, 1000);
+  });
+}
+
 async function getCheckbox() {
   const allCheck = document.querySelectorAll('[type="checkbox"]');
   Array.from(allCheck).forEach((checkbox) => {
@@ -145,6 +156,16 @@ async function getCheckbox() {
       } else {
         checkbox.parentNode.style.fontWeight = "bold";
       }
+
+      let timerObj;
+
+      clearTimeout(timerObj);
+
+      timerObj = setTimeout(() => {
+        cerca();
+      }, 1000);
     });
   });
 }
+
+handleType();
