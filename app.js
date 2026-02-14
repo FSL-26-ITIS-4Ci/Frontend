@@ -136,7 +136,7 @@ function populateModal(game) {
     <div class="modal-game-details">
       <img src="${game.imgPath}" alt="${game.nome}" style="max-width: 100%; height: auto; margin-bottom: 20px;">
       <h2>${game.nome}</h2>
-      ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3>` : ""}<br>
+      ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3><br>` : ""}
       <p><strong>Studio:</strong> ${game.studio}</p>
       <p><strong>Prezzo:</strong> €${game.prezzo}</p>
       <p><strong>Tags:</strong> ${game.tag.join(", ")}</p>
