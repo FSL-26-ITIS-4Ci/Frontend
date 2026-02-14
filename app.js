@@ -54,7 +54,7 @@ async function init() {
         data.piattaforme.forEach((piattaforma) => {
           platformSelect.innerHTML += `<label for="${piattaforma}"><input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">${piattaforma}</label>`;
         });
-        getCheckbox();
+        handleFilterChange();
         break;
 
       default:
@@ -174,8 +174,11 @@ async function handleType() {
   });
 }
 
-async function getCheckbox() {
+async function handleFilterChange() {
   const allCheck = document.querySelectorAll('[type="checkbox"]');
+  const pegiRadio = document.querySelectorAll('[name="pegi"]');
+  const crossRadio = document.querySelectorAll('[name="crossPlay"]');
+
   Array.from(allCheck).forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
       if (checkbox.parentNode.style.fontWeight === "bold") {
@@ -184,13 +187,19 @@ async function getCheckbox() {
         checkbox.parentNode.style.fontWeight = "bold";
       }
 
-      let timerObj;
+      cercaTimeout();
+    });
+  });
 
-      clearTimeout(timerObj);
+  Array.from(pegiRadio).forEach((radio) => {
+    radio.addEventListener("click", () => {
+      cercaTimeout();
+    });
+  });
 
-      timerObj = setTimeout(() => {
-        cerca();
-      }, 1000);
+  Array.from(crossRadio).forEach((radio) => {
+    radio.addEventListener("click", () => {
+      cercaTimeout();
     });
   });
 }
@@ -232,3 +241,13 @@ async function handleModal() {
 }
 
 handleType();
+
+function cercaTimeout() {
+  let timerObj;
+
+  clearTimeout(timerObj);
+
+  timerObj = setTimeout(() => {
+    cerca();
+  }, 1000);
+}
