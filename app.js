@@ -21,6 +21,8 @@ let currentFilters = {
   pegi: null,
 };
 
+let gamesData = [];
+
 function waitForConnection() {
   return new Promise((resolve) => {
     ws.onopen = () => {
@@ -36,8 +38,14 @@ async function init() {
     const data = JSON.parse(event.data);
     switch (data.type) {
       case "gamesList":
-      case "search":
+        gamesData = data.value;
         renderGames(data.value);
+        handleModal();
+        break;
+      case "search":
+        gamesData = data.value;
+        renderGames(data.value);
+        handleModal();
         break;
       case "initialFilters":
         data.tags.forEach((tag) => {
@@ -98,18 +106,13 @@ async function cerca() {
   );
 }
 
-function createGameCard(game) {
+function createGameCard(game, index) {
   return (
     `
-    <div class="game-card">
+    <div class="game-card" data-game-index="${index}">
       <img src=${game.imgPath}>
       <h2>${game.nome}</h2>
-      <p>${game.studio}</p>
-      <p>Tags: ${game.tag.join(", ")}</p>
       <p>Price: €${game.prezzo}</p>
-      <p>Platforms: ${game.piattaforme.join(", ")}</p>
-      <p>PEGI: ${game.pegi}</p>
-      <p>Cross-Play: ${game.crossPlay ? "Yes" : "No"}</p>
   ` +
     (game.common
       ? game.common.length
@@ -121,7 +124,30 @@ function createGameCard(game) {
 
 function renderGames(gamesList) {
   const gamesGrid = document.getElementById("gamesGrid");
-  gamesGrid.innerHTML = gamesList.map((game) => createGameCard(game)).join("");
+  gamesGrid.innerHTML = gamesList
+    .map((game, index) => createGameCard(game, index))
+    .join("");
+}
+
+function populateModal(game) {
+  const modalContent = document.querySelector("#myModal .modal-content");
+
+  const detailsHTML = `
+    <span class="close">&times;</span>
+    <div class="modal-game-details">
+      <img src="${game.imgPath}" alt="${game.nome}" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+      <h2>${game.nome}</h2>
+      <p><strong>Studio:</strong> ${game.studio}</p>
+      <p><strong>Prezzo:</strong> €${game.prezzo}</p>
+      <p><strong>Tags:</strong> ${game.tag.join(", ")}</p>
+      <p><strong>Piattaforme:</strong> ${game.piattaforme.join(", ")}</p>
+      <p><strong>PEGI:</strong> ${game.pegi}</p>
+      <p><strong>Cross-Play:</strong> ${game.crossPlay ? "Si" : "No"}</p>
+      ${game.common && game.common.length ? `<p><strong>Tag/Piattaforme Comuni:</strong> ${game.common.join(", ")}</p>` : ""}
+    </div>
+  `;
+
+  modalContent.innerHTML = detailsHTML;
 }
 
 searchArea.addEventListener("input", () => {
@@ -177,6 +203,32 @@ function reset() {
   currentFilters.pegi = null;
 
   cerca();
+}
+
+async function handleModal() {
+  const modal = document.getElementById("myModal");
+  const allGames = document.querySelectorAll(".game-card");
+
+  Array.from(allGames).forEach((item) => {
+    item.onclick = function () {
+      const gameIndex = parseInt(this.getAttribute("data-game-index"));
+      const game = gamesData[gameIndex];
+
+      populateModal(game);
+      modal.style.display = "block";
+
+      const span = document.getElementsByClassName("close")[0];
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+    };
+  });
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 }
 
 handleType();
