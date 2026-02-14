@@ -204,7 +204,7 @@ async function handleFilterChange() {
   });
 }
 
-function reset() {
+function resetFilters() {
   searchArea.value = "";
   currentFilters.searchTerm = "";
   currentFilters.tags = [];
