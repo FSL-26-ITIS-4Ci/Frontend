@@ -39,8 +39,6 @@ async function init() {
     switch (data.type) {
       case "gamesList":
         gamesData = data.value;
-        renderGames(data.value);
-        handleModal();
         cerca();
         break;
       case "search":
