@@ -111,7 +111,7 @@ function createGameCard(game, index) {
     <div class="game-card" data-game-index="${index}">
       <img src=${game.imgPath}>
       <h2>${game.nome}</h2>
-      <p>Price: €${game.prezzo}</p>
+      <p>Prezzo: €${game.prezzo}</p>
   ` +
     (game.common
       ? game.common.length
