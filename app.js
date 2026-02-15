@@ -113,7 +113,7 @@ function createGameCard(game, index) {
     <div class="game-card" data-game-index="${index}">
       <img src=${game.imgPath}>
       <h2>${game.nome}</h2>
-      <p>Prezzo: €${game.prezzo}</p>
+      <p>Prezzo: ${game.prezzo === "0.00" || game.prezzo === "0" ? "Gratis" : "€" + game.prezzo}</p>
   ` +
     (game.common
       ? game.common.length
@@ -140,7 +140,7 @@ function populateModal(game) {
       <h2>${game.nome}</h2>
       ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3><br>` : ""}
       <p><strong>Studio:</strong> ${game.studio}</p>
-      <p><strong>Prezzo:</strong> €${game.prezzo}</p>
+      <p><strong>Prezzo:</strong> ${game.prezzo === "0.00" || game.prezzo === "0" ? "Gratis" : "€" + game.prezzo}</p>
       <p><strong>Anno di rilascita: </strong>${game.anno}</p>
       <p><strong>Tags:</strong> ${game.tag.join(", ")}</p>
       <p><strong>Piattaforme:</strong> ${game.piattaforme.join(", ")}</p>
