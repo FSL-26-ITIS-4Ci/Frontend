@@ -9,7 +9,7 @@ arrTags.forEach((tag) => {
 });
 
 arrPlat.forEach((plat) => {
-  selPlat.innerHTML += `<input type="checkbox" id="${plat}" name="tag" value="${plat}">\n<label for="${plat}">${plat}</label><br>`;
+  selPlat.innerHTML += `<input type="checkbox" id="${plat}" name="piattaforme" value="${plat}">\n<label for="${plat}">${plat}</label><br>`;
 });
 
 function parse(sender) {
