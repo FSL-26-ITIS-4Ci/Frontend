@@ -90,16 +90,31 @@ header h1 {
   gap: 20px;
   padding: 0 20px 20px 20px;
   flex: 1;
-  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 section {
   width: 100%;
-  max-width: 800px;
   padding: 30px;
   background-color: #272727;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 30px;
+}
+
+.form-container {
+  flex: 1;
+  min-width: 0;
+}
+
+.json-container {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 form {
@@ -158,6 +173,9 @@ form {
   background-color: rgba(16, 16, 16, 0.4);
   color: #fff;
   resize: vertical;
+  flex: 1;
+  min-height: 400px;
+  font-family: "Courier New", monospace;
 }
 
 .form-group textarea:focus {
@@ -351,6 +369,16 @@ footer small {
   opacity: 0.8;
 }
 
+@media (max-width: 1200px) {
+  section {
+    flex-direction: column;
+  }
+
+  .json-container {
+    order: -1;
+  }
+}
+
 @media (max-width: 768px) {
   section {
     padding: 20px;
@@ -369,6 +397,10 @@ footer small {
 
   header h1 {
     font-size: 22px;
+  }
+
+  .form-group textarea {
+    min-height: 300px;
   }
 }
 

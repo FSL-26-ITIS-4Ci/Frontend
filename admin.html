@@ -11,104 +11,88 @@
     <header>
       <h1>Admin Panel</h1>
     </header>
-
     <div class="content-wrapper">
       <section>
-        <form>
-          <div class="form-group">
-            <label for="nome">Nome gioco</label>
-            <input type="text" name="nome" id="nome" />
-          </div>
-
-          <div class="form-group">
-            <details id="tag" name="tag">
-              <summary>Tag</summary>
-            </details>
-          </div>
-
-          <div class="form-group">
-            <label for="prezzo">Prezzo</label>
-            <input
-              type="text"
-              pattern="^\d+(\.\d+)?$"
-              id="prezzo"
-              name="prezzo"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="studio">Studio</label>
-            <input type="text" name="studio" id="studio" />
-          </div>
-
-          <div class="form-group">
-            <label for="desc">Descrizione</label>
-            <input type="text" name="desc" id="desc" />
-          </div>
-
-          <div class="form-group">
-            <details id="piattaforme" name="piattaforme">
-              <summary>Piattaforme</summary>
-            </details>
-          </div>
-
-          <div class="form-group">
-            <label for="pegi">PEGI</label>
-            <input id="pegi" name="pegi" type="number" />
-          </div>
-
-          <div class="form-group">
-            <label for="anno">Anno</label>
-            <input type="number" id="anno" name="anno" pattern="[0-9]{4}" />
-          </div>
-
-          <div class="form-group">
-            <label for="imgPath">Nome immagine</label>
-            <input type="text" name="imgPath" id="imgPath" />
-          </div>
-
-          <div class="form-group checkbox-group">
-            <input type="checkbox" name="crossPlay" id="crossPlay" />
-            <label for="crossPlay">Cross-Play</label>
-          </div>
-
-          <div class="form-actions">
-            <input
-              type="submit"
-              name="Invia"
-              id="Invia"
-              value="Invia"
-              onclick="parse(this)"
-              class="submit-btn"
-            />
-            <input
-              type="reset"
-              name="Reset"
-              id="Reset"
-              value="Reset"
-              class="reset-btn"
-            />
-          </div>
-
+        <div class="form-container">
+          <form>
+            <div class="form-group">
+              <label for="nome">Nome gioco</label>
+              <input type="text" name="nome" id="nome" />
+            </div>
+            <div class="form-group">
+              <details id="tag" name="tag">
+                <summary>Tag</summary>
+              </details>
+            </div>
+            <div class="form-group">
+              <label for="prezzo">Prezzo</label>
+              <input
+                type="text"
+                pattern="^\d+(\.\d+)?$"
+                id="prezzo"
+                name="prezzo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studio">Studio</label>
+              <input type="text" name="studio" id="studio" />
+            </div>
+            <div class="form-group">
+              <label for="desc">Descrizione</label>
+              <input type="text" name="desc" id="desc" />
+            </div>
+            <div class="form-group">
+              <details id="piattaforme" name="piattaforme">
+                <summary>Piattaforme</summary>
+              </details>
+            </div>
+            <div class="form-group">
+              <label for="pegi">PEGI</label>
+              <input id="pegi" name="pegi" type="number" />
+            </div>
+            <div class="form-group">
+              <label for="anno">Anno</label>
+              <input type="number" id="anno" name="anno" pattern="[0-9]{4}" />
+            </div>
+            <div class="form-group">
+              <label for="imgPath">Nome immagine</label>
+              <input type="text" name="imgPath" id="imgPath" />
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" name="crossPlay" id="crossPlay" />
+              <label for="crossPlay">Cross-Play</label>
+            </div>
+            <div class="form-actions">
+              <input
+                type="submit"
+                name="Invia"
+                id="Invia"
+                value="Invia"
+                onclick="parse(this)"
+                class="submit-btn"
+              />
+              <input
+                type="reset"
+                name="Reset"
+                id="Reset"
+                value="Reset"
+                class="reset-btn"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="json-container">
           <div class="form-group">
             <label for="JSON">Output JSON:</label>
-            <textarea
-              name="JSON"
-              id="JSON"
-              rows="30"
-              cols="60"
-              readonly
-            ></textarea>
+            <textarea name="JSON" id="JSON" readonly></textarea>
+            <div class="admin-actions">
+              <button id="logoutBtn">Logout</button>
+              <button id="homeBtn">Home</button>
+            </div>
           </div>
-        </form>
-
-        <div class="admin-actions">
-          <button id="logoutBtn">Logout</button>
-          <button id="homeBtn">Home</button>
         </div>
       </section>
     </div>
-
     <footer>
       <small>&copy; Classe 4Ci 2026</small>
     </footer>
