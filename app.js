@@ -141,6 +141,7 @@ function populateModal(game) {
       ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3><br>` : ""}
       <p><strong>Studio:</strong> ${game.studio}</p>
       <p><strong>Prezzo:</strong> €${game.prezzo}</p>
+      <p><strong>Anno di rilascita: </strong>${game.anno}</p>
       <p><strong>Tags:</strong> ${game.tag.join(", ")}</p>
       <p><strong>Piattaforme:</strong> ${game.piattaforme.join(", ")}</p>
       <p><strong>PEGI:</strong> ${game.pegi}</p>
