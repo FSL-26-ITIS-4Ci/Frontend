@@ -53,6 +53,8 @@ async function init() {
         data.piattaforme.forEach((piattaforma) => {
           platformSelect.innerHTML += `<label for="${piattaforma}"><input type="checkbox" id="${piattaforma}" name="piat" value="${piattaforma}">${piattaforma}</label>`;
         });
+        sessionStorage.setItem("tags", data.tags);
+        sessionStorage.setItem("platform", data.piattaforme);
         handleFilterChange();
         break;
 

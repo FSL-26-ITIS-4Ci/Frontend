@@ -1,15 +1,12 @@
 const hostname = window.location.hostname;
-
 const WS_URL =
   hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
     : hostname === "frontend-production-fc994.up.railway.app"
       ? "wss://backend-js-production-7ed9.up.railway.app"
       : "wss://backend-js-vubt.onrender.com";
-
 const ws = new WebSocket(WS_URL);
 let token = localStorage.getItem("authToken");
-
 function safeSend(payload) {
   if (ws.readyState === WebSocket.OPEN) {
     ws.send(payload);
@@ -17,7 +14,6 @@ function safeSend(payload) {
     ws.addEventListener("open", () => ws.send(payload), { once: true });
   }
 }
-
 ws.onmessage = (event) => {
   const data = JSON.parse(event.data);
   switch (data.type) {
@@ -34,9 +30,6 @@ ws.onmessage = (event) => {
       clearSession();
       location.href = "index.html";
       break;
-    case "protected_response":
-      console.log("Protected response:", data.message);
-      break;
     case "error":
       if (data.message.includes("Unauthorized")) {
         clearSession();
@@ -45,12 +38,10 @@ ws.onmessage = (event) => {
       break;
   }
 };
-
 function clearSession() {
   localStorage.removeItem("authToken");
   token = null;
 }
-
 const loginBtn = document.getElementById("loginBtn");
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {
@@ -58,27 +49,20 @@ if (loginBtn) {
     safeSend(JSON.stringify({ type: "login", password: pass }));
   });
 }
-
 const logoutBtn = document.getElementById("logoutBtn");
-const protectedBtn = document.getElementById("protectedBtn");
-if (logoutBtn && protectedBtn) {
+const homeBtn = document.getElementById("homeBtn");
+if (logoutBtn && homeBtn) {
   if (!token) {
     location.href = "login.html";
   }
   logoutBtn.addEventListener("click", () => {
     safeSend(JSON.stringify({ type: "logout", token: token }));
   });
-  protectedBtn.addEventListener("click", () => {
-    safeSend(
-      JSON.stringify({
-        type: "protected_action",
-        token: token,
-        data: "Admin action",
-      }),
-    );
+
+  homeBtn.addEventListener("click", () => {
+    location.href = "index.html";
   });
 }
-
 function checkLogin() {
   if (token) {
     location.href = "admin.html";
