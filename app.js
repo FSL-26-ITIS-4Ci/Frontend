@@ -136,18 +136,33 @@ function populateModal(game) {
   const detailsHTML = `
     <span class="close">&times;</span>
     <div class="modal-game-details">
-      <img src="${game.imgPath}" alt="${game.nome}" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+      <img src="${game.imgPath}" alt="${game.nome}" style="max-width: 100%; height: auto;">
       <h2>${game.nome}</h2>
-      ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3><br>` : ""}
+${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti piacerà.</h3>` : ""}
       <p><strong>Descrizione: </strong>${game.desc}</p>
       <p><strong>Studio:</strong> ${game.studio}</p>
       <p><strong>Prezzo:</strong> ${game.prezzo === "0.00" || game.prezzo === "0" ? "Gratis" : "€" + game.prezzo}</p>
       <p><strong>Anno di rilascita: </strong>${game.anno}</p>
-      <p><strong>Tags:</strong> ${game.tag.join(", ")}</p>
-      <p><strong>Piattaforme:</strong> ${game.piattaforme.join(", ")}</p>
       <p><strong>PEGI:</strong> ${game.pegi}</p>
       <p><strong>Cross-Play:</strong> ${game.crossPlay ? "Si" : "No"}</p>
-      ${game.common && game.common.length ? `<p><strong>Tag/Piattaforme Comuni:</strong> ${game.common.join(", ")}</p>` : ""}
+      <p><strong>Tags:</strong></p>
+      <div class="pill-container">
+        ${game.tag.map((tag) => `<span class="pill">${tag}</span>`).join("")}
+      </div>
+      <p><strong>Piattaforme:</strong></p>
+      <div class="pill-container">
+        ${game.piattaforme.map((platform) => `<span class="pill platform">${platform}</span>`).join("")}
+      </div>
+${
+  game.common && game.common.length
+    ? `
+      <p><strong>Tag/Piattaforme Comuni:</strong></p>
+      <div class="pill-container">
+        ${game.common.map((item) => `<span class="pill">${item}</span>`).join("")}
+      </div>
+`
+    : ""
+}
     </div>
   `;
 
