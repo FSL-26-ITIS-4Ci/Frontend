@@ -524,6 +524,28 @@ section {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.modal-game-details .pill.common {
+  background: rgba(0, 255, 100, 0.15);
+  border-color: rgba(0, 255, 100, 0.3);
+  color: #5cff8d;
+}
+
+.modal-game-details .pill.common:hover {
+  background: rgba(0, 255, 100, 0.25);
+  border-color: #00ff64;
+}
+
+.modal-game-details .pill.platform.common {
+  background: rgba(0, 255, 100, 0.15);
+  border-color: rgba(0, 255, 100, 0.3);
+  color: #5cff8d;
+}
+
+.modal-game-details .pill.platform.common:hover {
+  background: rgba(0, 255, 100, 0.25);
+  border-color: #00ff64;
+}
+
 .close {
   color: #fff;
   position: absolute;

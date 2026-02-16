@@ -147,22 +147,22 @@ ${game.affinity ? `<h3>Siamo sicuri al ${game.affinity}% Che questo gioco ti pia
       <p><strong>Cross-Play:</strong> ${game.crossPlay ? "Si" : "No"}</p>
       <p><strong>Tags:</strong></p>
       <div class="pill-container">
-        ${game.tag.map((tag) => `<span class="pill">${tag}</span>`).join("")}
+${game.tag
+  .map((tag) => {
+    const isCommon = game.common && game.common.includes(tag);
+    return `<span class="pill${isCommon ? " common" : ""}">${tag}</span>`;
+  })
+  .join("")}
       </div>
       <p><strong>Piattaforme:</strong></p>
       <div class="pill-container">
-        ${game.piattaforme.map((platform) => `<span class="pill platform">${platform}</span>`).join("")}
+${game.piattaforme
+  .map((platform) => {
+    const isCommon = game.common && game.common.includes(platform);
+    return `<span class="pill platform${isCommon ? " common" : ""}">${platform}</span>`;
+  })
+  .join("")}
       </div>
-${
-  game.common && game.common.length
-    ? `
-      <p><strong>Tag/Piattaforme Comuni:</strong></p>
-      <div class="pill-container">
-        ${game.common.map((item) => `<span class="pill">${item}</span>`).join("")}
-      </div>
-`
-    : ""
-}
     </div>
   `;
 
