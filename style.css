@@ -26,12 +26,28 @@ header {
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header img {
+  width: auto;
+  height: 100% !important;
+  max-height: 64px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
   font-size: 28px;
   font-weight: 600;
   text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 body {
@@ -318,46 +334,6 @@ section {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  aside {
-    width: 100%;
-  }
-
-  .games-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    max-height: 400px;
-  }
-
-  nav {
-    flex-direction: column;
-    margin: 0 10px 10px 10px;
-  }
-
-  #searchArea {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 20px;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-    max-height: 300px;
-  }
-
-  nav {
-    padding: 10px;
-    margin: 0 10px 10px 10px;
-  }
-}
-
 .modal {
   display: none;
   position: fixed;
@@ -574,7 +550,79 @@ section {
   text-decoration: none;
 }
 
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.goog-te-gadget * {
+  font-size: 14px !important;
+  color: white !important;
+}
+
+.goog-te-gadget span,
+.goog-te-gadget a,
+.goog-te-gadget img {
+  display: none !important;
+}
+
+.goog-te-gadget > div {
+  display: block !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+#google_translate_element select {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  background: #2b1a12;
+  color: #fff4e4;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  padding: 10px 12px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+div.skiptranslate:nth-child(1) > span:nth-child(2) {
+  display: none;
+}
+
+#google_translate_element {
+  justify-self: end;
+  min-width: 0;
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-height: 400px;
+  }
+
+  nav {
+    flex-direction: column;
+    margin: 0 10px 10px 10px;
+  }
+
+  #searchArea {
+    width: 100%;
+  }
+
   .modal-content {
     width: 95%;
     margin: 5% auto;
@@ -616,53 +664,40 @@ section {
     height: 28px;
     font-size: 24px;
   }
+
+  footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  footer button {
+    justify-self: center;
+  }
+
+  #google_translate_element {
+    justify-self: center;
+  }
+
+  #google_translate_element select,
+  .goog-te-gadget select {
+    width: 100%;
+    max-width: 200px;
+  }
 }
 
-.goog-te-gadget {
-  color: transparent !important;
-  font-size: 0px;
-}
-.goog-text-highlight {
-  background: none !important;
-  box-shadow: none !important;
-}
-#google_translate_element select {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  text-align: center;
-  background: #2b1a12;
-  color: #fff4e4;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-  padding: 10px 12px;
-}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
 
-div.skiptranslate:nth-child(1) > span:nth-child(2) {
-  display: none;
-}
+  .games-grid {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+  }
 
-#google_translate_element {
-  justify-self: end;
-}
-
-.goog-te-gadget {
-  color: transparent !important;
-  font-size: 0px !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.goog-te-gadget * {
-  font-size: 14px !important;
-  color: white !important;
-}
-
-.goog-te-gadget span,
-.goog-te-gadget a,
-.goog-te-gadget img {
-  display: none !important;
-}
-
-.goog-te-gadget > div {
-  display: block !important;
+  nav {
+    padding: 10px;
+    margin: 0 10px 10px 10px;
+  }
 }
