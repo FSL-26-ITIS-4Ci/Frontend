@@ -72,11 +72,12 @@ input[type="password"]:hover {
 }
 
 header {
-  background: linear-gradient(10deg, #0000ff, #0066ff);
+  background-color: #272727;
   color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding: 15px 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -267,7 +268,6 @@ details[open] summary {
 .reset-btn,
 button {
   padding: 12px 30px;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
@@ -278,20 +278,21 @@ button {
 
 .submit-btn,
 button:not(.reset-btn):not(#logoutBtn) {
-  background: linear-gradient(10deg, #0000ff, #0066ff);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
 }
 
 .submit-btn:hover,
 button:not(.reset-btn):not(#logoutBtn):hover {
-  background: linear-gradient(10deg, #3333ff, #0066ff);
+  background-color: rgba(0, 0, 255, 0.2);
+  border-color: #0066ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.4);
 }
 
 .reset-btn {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
 }
 
@@ -311,7 +312,6 @@ button:not(.reset-btn):not(#logoutBtn):hover {
 
 .admin-actions button {
   padding: 12px 25px;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
@@ -321,27 +321,27 @@ button:not(.reset-btn):not(#logoutBtn):hover {
 }
 
 #logoutBtn {
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: rgba(255, 0, 0, 0.1);
   border: 1px solid rgba(255, 0, 0, 0.5);
   color: #fff;
 }
 
 #logoutBtn:hover {
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.2);
   border-color: #ff3333;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
 }
 
 #homeBtn {
-  background: linear-gradient(10deg, #0000ff, #0066ff);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
 }
 
 #homeBtn:hover {
-  background: linear-gradient(10deg, #3333ff, #0066ff);
+  background-color: rgba(0, 0, 255, 0.2);
+  border-color: #0066ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.4);
 }
 
 #error {
@@ -353,15 +353,18 @@ button:not(.reset-btn):not(#logoutBtn):hover {
 }
 
 footer {
-  background: linear-gradient(10deg, #0000ff, #0066ff);
+  background-color: #272727;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 15px 20px;
+  margin: 20px;
   margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 footer small {
