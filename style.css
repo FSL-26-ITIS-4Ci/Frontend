@@ -28,9 +28,9 @@ img {
 header {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 10px 20px;
-  margin: 0 20px 0 20px;
+  gap: 60px;
+  padding: 0 10px;
+  margin: 0 10px 0 20px;
 }
 
 header img {
@@ -41,6 +41,7 @@ header img {
   flex-shrink: 0;
   position: relative;
   z-index: 1;
+  margin-left: 40px;
 }
 
 header nav {
