@@ -78,7 +78,7 @@ nav {
 #searchArea:focus,
 #searchArea:hover {
   outline: none;
-  border-color: #0000ff;
+  border-color: #ff8c00;
 }
 
 #searchArea:focus {
@@ -102,8 +102,8 @@ nav {
 }
 
 #searchButton:hover {
-  background-color: rgba(0, 0, 255, 0.2);
-  border-color: #0066ff;
+  background-color: #ff8c006e;
+  border-color: #ffd700;
   transform: translateY(-2px);
 }
 
@@ -146,8 +146,8 @@ aside form {
 }
 
 #reset:hover {
-  background-color: rgba(0, 0, 255, 0.2);
-  border-color: #0066ff;
+  background-color: #ff8c006e;
+  border-color: #ffd700;
   transform: translateY(-2px);
 }
 
@@ -184,7 +184,7 @@ details::-webkit-scrollbar-track,
 details::-webkit-scrollbar-thumb,
 .games-grid::-webkit-scrollbar-thumb,
 .modal-content::-webkit-scrollbar-thumb {
-  background: #0000ff;
+  background: #ff8c00;
   border-radius: 4px;
 }
 
@@ -195,7 +195,7 @@ details::-webkit-scrollbar-thumb,
 details::-webkit-scrollbar-thumb:hover,
 .games-grid::-webkit-scrollbar-thumb:hover,
 .modal-content::-webkit-scrollbar-thumb:hover {
-  background: #3333ff;
+  background: #e07c01;
 }
 
 details summary {
@@ -209,7 +209,7 @@ details summary {
 
 details summary:hover,
 details[open] summary {
-  color: #0000ff;
+  color: #ff8c00;
 }
 
 details[open] summary {
@@ -227,7 +227,7 @@ details input[type="radio"] {
   height: 18px;
   margin-right: 10px;
   cursor: pointer;
-  accent-color: #0000ff;
+  accent-color: #ff8c00;
   flex-shrink: 0;
   vertical-align: middle;
 }
@@ -242,7 +242,7 @@ details label {
 }
 
 details label:hover {
-  color: #0000ff;
+  color: #ff8c00;
 }
 
 .games-grid {
@@ -271,8 +271,8 @@ details label:hover {
 
 .game-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 255, 0.3);
-  border-color: #0000ff;
+  box-shadow: 0 5px 15px #e27c00;
+  border-color: #ff8c00;
 }
 
 .game-card h3 {
@@ -316,8 +316,8 @@ footer button {
 }
 
 footer button:hover {
-  background-color: rgba(0, 0, 255, 0.2);
-  border-color: #0066ff;
+  background-color: #ff8c006e;
+  border-color: #ffd700;
   transform: translateY(-2px);
 }
 
@@ -349,13 +349,13 @@ section {
 .modal-content {
   background: linear-gradient(135deg, #272727, #323232);
   margin: 3% auto;
-  border: 1px solid #0000ff;
+  border: 1px solid #ff8c00;
   border-radius: 10px;
   width: 90%;
   max-width: 550px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 255, 0.4);
+  box-shadow: 0 10px 40px #e27c00;
   animation: slideIn 0.3s ease-out;
   color: #fff;
   position: relative;
@@ -386,7 +386,7 @@ section {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
-  background: linear-gradient(90deg, #0000ff, #0066ff);
+  background: linear-gradient(90deg, #ff8c00, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -394,11 +394,11 @@ section {
 .modal-game-details h3 {
   font-size: 14px;
   font-weight: 500;
-  color: #0066ff;
+  color: #ffd700;
   margin-bottom: 15px;
   padding: 8px 12px;
   background: rgba(0, 102, 255, 0.1);
-  border-left: 3px solid #0066ff;
+  border-left: 3px solid #ffd700;
   border-radius: 4px;
 }
 
@@ -415,7 +415,7 @@ section {
 }
 
 .modal-game-details p strong {
-  color: #0066ff;
+  color: #ffd700;
   font-weight: 600;
   margin-right: 10px;
   display: inline-block;
@@ -449,18 +449,18 @@ section {
 .modal-game-details .pill {
   display: inline-block;
   padding: 4px 10px;
-  background: rgba(0, 102, 255, 0.15);
-  border: 1px solid rgba(0, 102, 255, 0.3);
+  background: #ff8c006e;
+  border: 1px solid #fc99217b;
   border-radius: 16px;
   font-size: 12px;
-  color: #7db4ff;
+  color: #ffd700;
   font-weight: 500;
   transition: all 0.2s;
 }
 
 .modal-game-details .pill:hover {
-  background: rgba(0, 102, 255, 0.25);
-  border-color: #0066ff;
+  background: #fc992185;
+  border-color: #ffd700;
   transform: translateY(-1px);
 }
 
@@ -510,8 +510,8 @@ section {
 
 .close:hover,
 .close:focus {
-  color: #0000ff;
-  background-color: rgba(0, 0, 255, 0.2);
+  color: #ff8c00;
+  background-color: #ff8c006e;
   transform: rotate(90deg);
 }
 
