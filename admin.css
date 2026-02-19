@@ -37,7 +37,7 @@ h2 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 30px;
-  background: linear-gradient(10deg, #0000ff, #0066ff);
+  background: linear-gradient(90deg, #ff8c00, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,12 +63,12 @@ input[type="password"]::placeholder {
 
 input[type="password"]:focus {
   outline: none;
-  border-color: #0000ff;
-  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+  border-color: #ff8c00;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
 }
 
 input[type="password"]:hover {
-  border-color: #0000ff;
+  border-color: #ff8c00;
 }
 
 header {
@@ -156,13 +156,13 @@ form {
 .form-group input[type="text"]:focus,
 .form-group input[type="number"]:focus {
   outline: none;
-  border-color: #0000ff;
-  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+  border-color: #ff8c00;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
 }
 
 .form-group input[type="text"]:hover,
 .form-group input[type="number"]:hover {
-  border-color: #0000ff;
+  border-color: #ff8c00;
 }
 
 .form-group textarea {
@@ -181,12 +181,12 @@ form {
 
 .form-group textarea:focus {
   outline: none;
-  border-color: #0000ff;
-  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+  border-color: #ff8c00;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
 }
 
 .form-group textarea:hover {
-  border-color: #0000ff;
+  border-color: #ff8c00;
 }
 
 .checkbox-group {
@@ -199,7 +199,7 @@ form {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #0000ff;
+  accent-color: #ff8c00;
 }
 
 .checkbox-group label {
@@ -210,7 +210,7 @@ form {
 }
 
 .checkbox-group label:hover {
-  color: #0000ff;
+  color: #ff8c00;
 }
 
 details {
@@ -232,12 +232,12 @@ details::-webkit-scrollbar-track {
 }
 
 details::-webkit-scrollbar-thumb {
-  background: #0000ff;
+  background: #ff8c00;
   border-radius: 4px;
 }
 
 details::-webkit-scrollbar-thumb:hover {
-  background: #3333ff;
+  background: #e07c01;
 }
 
 details summary {
@@ -250,11 +250,11 @@ details summary {
 }
 
 details summary:hover {
-  color: #0000ff;
+  color: #ff8c00;
 }
 
 details[open] summary {
-  color: #0000ff;
+  color: #ff8c00;
   margin-bottom: 10px;
 }
 
@@ -285,8 +285,8 @@ button:not(.reset-btn):not(#logoutBtn) {
 
 .submit-btn:hover,
 button:not(.reset-btn):not(#logoutBtn):hover {
-  background-color: rgba(0, 0, 255, 0.2);
-  border-color: #0066ff;
+  background-color: #ff8c006e;
+  border-color: #ffd700;
   transform: translateY(-2px);
 }
 
@@ -339,8 +339,8 @@ button:not(.reset-btn):not(#logoutBtn):hover {
 }
 
 #homeBtn:hover {
-  background-color: rgba(0, 0, 255, 0.2);
-  border-color: #0066ff;
+  background-color: #ff8c006e;
+  border-color: #ffd700;
   transform: translateY(-2px);
 }
 
