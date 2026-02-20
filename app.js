@@ -7,7 +7,7 @@ const hostname = window.location.hostname;
 const WS_URL =
   hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
-    : hostname === "frontend-production-fc994.up.railway.app"
+    : hostname === "findyourgame.up.railway.app"
       ? "wss://backend-js-production-7ed9.up.railway.app"
       : "wss://backend-js-vubt.onrender.com";
 
