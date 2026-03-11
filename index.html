@@ -1,10 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FindYourGame</title>
+    <meta
+      name="description"
+      content="Scopri e trova il tuo prossimo videogioco con FindYourGame. Filtra per tag, piattaforma, cross-play e classificazione PEGI. La libreria di giochi più completa."
+    />
+    <meta
+      name="keywords"
+      content="videogiochi, libreria giochi, cerca giochi, tag videogiochi, PEGI, cross-play, piattaforme gaming, PC, PlayStation, Xbox, Nintendo"
+    />
+    <meta name="author" content="Classe 4Ci 2026" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://findyourgame.izzoserver.top/" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/favicon.ico" />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <script
@@ -16,116 +29,168 @@
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     ></script>
   </head>
+
   <body>
-    <header>
-      <img alt="Logo" src="img/favicon.ico" />
-      <nav>
+    <header role="banner">
+      <a href="/" aria-label="FindYourGame – Homepage">
+        <img
+          alt="Logo FindYourGame"
+          src="img/favicon.ico"
+          width="32"
+          height="32"
+        />
+      </a>
+      <nav role="navigation" aria-label="Ricerca giochi">
+        <label for="searchArea" class="visually-hidden"></label>
         <input
-          type="text"
+          type="search"
           name="searchArea"
           id="searchArea"
           placeholder="Cerca..."
+          aria-label="Cerca un videogioco"
+          autocomplete="off"
         />
-        <button name="search" id="searchButton" onclick="cerca()">
-          <i class="fa-solid fa-magnifying-glass"></i> Cerca
+        <button
+          name="search"
+          id="searchButton"
+          onclick="cerca()"
+          aria-label="Avvia ricerca"
+        >
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Cerca
         </button>
       </nav>
     </header>
 
     <div class="content-wrapper">
-      <aside>
-        <form id="form">
-          <button name="reset" id="reset" onclick="resetFilters()">
-            <i class="fa-solid fa-filter-circle-xmark"></i>
+      <aside aria-label="Filtri di ricerca">
+        <form id="form" role="search" aria-label="Filtra videogiochi">
+          <button
+            name="reset"
+            id="reset"
+            type="button"
+            onclick="resetFilters()"
+            aria-label="Rimuovi tutti i filtri"
+          >
+            <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
             Reset
           </button>
+
           <details id="tagSelect">
-            <summary><i class="fa-solid fa-tags"></i> Filtra per tag</summary>
+            <summary>
+              <i class="fa-solid fa-tags" aria-hidden="true"></i> Filtra per tag
+            </summary>
           </details>
+
           <details id="platformSelect">
             <summary>
-              <i class="fa-solid fa-computer"></i> Filtra per Piattaforma
+              <i class="fa-solid fa-computer" aria-hidden="true"></i> Filtra per
+              Piattaforma
             </summary>
           </details>
 
           <details id="crossSelect">
             <summary>
-              <i class="fa-solid fa-arrow-down-up-across-line"></i> Cross-Play
+              <i
+                class="fa-solid fa-arrow-down-up-across-line"
+                aria-hidden="true"
+              ></i>
+              Cross-Play
             </summary>
-            <label for="none"
-              ><input
-                type="radio"
-                id="none"
-                name="crossPlay"
-                value="none"
-                checked="checked"
-              />ND</label
-            >
-            <label for="si"
-              ><input
-                type="radio"
-                id="si"
-                name="crossPlay"
-                value="si"
-              />Si</label
-            >
-            <label for="no"
-              ><input
-                type="radio"
-                id="no"
-                name="crossPlay"
-                value="no"
-              />No</label
-            >
+            <fieldset>
+              <legend class="visually-hidden">Filtra per Cross-Play</legend>
+              <label for="none">
+                <input
+                  type="radio"
+                  id="none"
+                  name="crossPlay"
+                  value="none"
+                  checked
+                />
+                ND
+              </label>
+              <label for="si">
+                <input type="radio" id="si" name="crossPlay" value="si" />
+                Si
+              </label>
+              <label for="no">
+                <input type="radio" id="no" name="crossPlay" value="no" />
+                No
+              </label>
+            </fieldset>
           </details>
 
           <details id="pegiSelect">
             <summary>
-              <i class="fa-solid fa-person-circle-exclamation"></i> PEGI
+              <i
+                class="fa-solid fa-person-circle-exclamation"
+                aria-hidden="true"
+              ></i>
+              PEGI
             </summary>
-            <label for="noneP"
-              ><input
-                type="radio"
-                id="noneP"
-                name="pegi"
-                value="null"
-                checked="checked"
-              />ND</label
-            >
-            <label for="p3"
-              ><input type="radio" id="p3" name="pegi" value="3" />3</label
-            >
-            <label for="p7"
-              ><input type="radio" id="p7" name="pegi" value="7" />7</label
-            >
-            <label for="p12"
-              ><input type="radio" id="p12" name="pegi" value="12" />12</label
-            >
-            <label for="p16"
-              ><input type="radio" id="p16" name="pegi" value="16" />16</label
-            >
-            <label for="p18"
-              ><input type="radio" id="p18" name="pegi" value="18" />18</label
-            >
+            <fieldset>
+              <legend class="visually-hidden">
+                Filtra per classificazione PEGI
+              </legend>
+              <label for="noneP">
+                <input
+                  type="radio"
+                  id="noneP"
+                  name="pegi"
+                  value="null"
+                  checked
+                />
+                ND
+              </label>
+              <label for="p3">
+                <input type="radio" id="p3" name="pegi" value="3" />
+                3
+              </label>
+              <label for="p7">
+                <input type="radio" id="p7" name="pegi" value="7" />
+                7
+              </label>
+              <label for="p12">
+                <input type="radio" id="p12" name="pegi" value="12" />
+                12
+              </label>
+              <label for="p16">
+                <input type="radio" id="p16" name="pegi" value="16" />
+                16
+              </label>
+              <label for="p18">
+                <input type="radio" id="p18" name="pegi" value="18" />
+                18
+              </label>
+            </fieldset>
           </details>
         </form>
       </aside>
 
-      <div id="myModal" class="modal">
+      <div
+        id="myModal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Dettagli gioco"
+      >
         <div class="modal-content">
-          <span class="close">&times;</span>
+          <button class="close" aria-label="Chiudi">&#x2715;</button>
         </div>
       </div>
 
       <div class="games-grid" id="gamesGrid"></div>
     </div>
 
-    <footer>
-      <button onclick="location.href = 'login.html'">
-        <i class="fa-solid fa-screwdriver-wrench"></i> Zona Admin
+    <footer role="contentinfo">
+      <button
+        onclick="location.href = 'login.html'"
+        aria-label="Accedi alla zona amministrazione"
+      >
+        <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Zona
+        Admin
       </button>
       <h4>© Classe 4Ci 2026</h4>
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element" aria-label="Seleziona lingua"></div>
     </footer>
   </body>
 </html>
