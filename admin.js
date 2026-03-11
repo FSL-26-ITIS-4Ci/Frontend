@@ -2,7 +2,7 @@ const hostname = window.location.hostname;
 const WS_URL =
   hostname === "localhost" || hostname === "127.0.0.1"
     ? "ws://localhost:8080"
-    : "wss://backend-js-vubt.onrender.com";
+    : "wss://backend-fyg.up.railway.app";
 const ws = new WebSocket(WS_URL);
 let token = localStorage.getItem("authToken");
 function safeSend(payload) {
